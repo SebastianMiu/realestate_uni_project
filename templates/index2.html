@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGENTIE IMOBILIARA</title>
+</head>
+<body style="background-color: #c8f7d5">
+    <h1 style="text-align: center; font-family: Papyrus, sans-serif; font-size: 40px; color: #000">Lista Proprietari</h1>
+    <table border="1" style="margin: 0 auto; border-collapse: collapse;">
+        <tr>
+            <th style="padding: 10px; text-align: center; background-color: #f5476d">ID Proprietar:</th>
+            <th style="padding: 10px; text-align: center; background-color: #f5476d">Nume:</th>
+            <th style="padding: 10px; text-align: center; background-color: #f5476d">Telefon:</th>
+            <th style="padding: 10px; text-align: center; background-color: #f5476d">email:</th>
+            <th style="padding: 10px; text-align: center; background-color: #f5476d">Negociere:</th>
+            <th style="padding: 10px; text-align: center; background-color: #f5476d">ID agent:</th>
+        </tr>
+        {% for proprietar in proprietari %}
+        <tr>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[0] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[1] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[2] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[3] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[4] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[5 ]}}
+            </td>
+        </tr>
+        {% endfor %}
+
+        {% for proprietar in proprietari2 %}
+        <tr>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[0] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[1] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[2] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[3] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[4] }}</td>
+            <td style="padding: 10px; text-align: center;background-color: #f6cafc">{{ proprietar[5 ]}}
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+
+
+    <form action="{{ url_for('show_negocieri') }}" method="POST" style="width: 50%; margin: 20px auto; text-align: center;">
+        
+        <label for="id">Selecteaza proprietarii:</label><br>
+        <select id="options" name="Negociere">
+            <option value="1">Cu negociere</option>
+            <option value="0">Fara negociere</option>
+        </select><br><br>
+        
+        <button type="submit" style="background-color: #007bff; color: #00; border: 0; padding: 10px 20px; cursor: pointer;">
+            Start </button>
+        
+        </form>
+
+        <form action="{{ url_for('ordonarealfabetic') }}" method="POST" style="width: 50%; margin: 20px auto; text-align: center;">
+            <button type="submit" style="background-color: #fff; color: #00; border: 0; padding: 10px 20px; cursor: pointer;">
+                Ordoneaza Alfabetic </button>
+
+        </form>
+
+        <form action="{{ url_for('propdupaagent') }}" method="POST" style="width: 50%; margin: 20px auto; text-align: center;">
+        
+            <label for="id">Vezi proprietarii cu agentul:</label><br><br>
+            <input type="text" id="ID_agent" name="ID_agent" required><br><br>
+            
+            <button type="submit" style="background-color: #007bff; color: #00; border: 0; padding: 10px 20px; cursor: pointer;">
+                Start </button>
+            
+            </form>
+        <center>
+     
+        <a href="/index2">Inapoi la formular</a><br>
+
+        <div style="margin-top: 20px;">
+            <form action="{{ url_for('index')}}" method="get" style="display: inline;">
+                <button type="submit" style="background-color: #f53d3d; color: #00; border: 0; padding: 10px 20px; cursor: pointer;">
+                    INAPOI </button>
+            </form>
+        </div>
+        </center>
+
+
+</body>
+</html>
