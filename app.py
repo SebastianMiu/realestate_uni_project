@@ -7,7 +7,7 @@ app = Flask(__name__)
  
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'student'
+app.config['MYSQL_PASSWORD'] = 'INSERT_PASSWORD_HERE'
 app.config['MYSQL_DB'] = 'AgentieImobiliara'
 
  
