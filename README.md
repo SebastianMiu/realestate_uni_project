@@ -8,12 +8,12 @@
 - add/update/delete agents from the list;
 - several filter options (e.g. order alphabetically, show properties cheaper than inserted value, sort by property type etc.)
 
+![img2](https://github.com/user-attachments/assets/d0025283-09f4-47d5-b351-707e71ecb86e)
+
+![img3](https://github.com/user-attachments/assets/2daff18d-c1bd-43df-a06e-6a46fc6c08c5)
+
 
 ### How to use:
 to install the requirements, run the following command in your terminal:
 
 pip install -r requirements. txt
-
-![img2](https://github.com/user-attachments/assets/d0025283-09f4-47d5-b351-707e71ecb86e)
-
-![img3](https://github.com/user-attachments/assets/2daff18d-c1bd-43df-a06e-6a46fc6c08c5)
