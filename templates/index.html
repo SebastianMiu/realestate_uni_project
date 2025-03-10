@@ -1,88 +1,123 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <title>AGENTIE IMOBILIARA</title>
 </head>
-<body style="background-color: #c8f7d5">
+<body>
     
-    <h1 style="text-align: center; font-family: Papyrus, sans-serif; font-size: 40px; color: #000">Lista Agenti Imobiliari</h1>
-    <table border="1" style="margin: 0 auto; border-collapse: collapse;">
-        <tr>
-            <th style="padding: 10px; text-align: center; background-color: #f5476d">ID Agent</th>
-            <th style="padding: 10px; text-align: center; background-color: #f5476d">Nume</th>
-            <th style="padding: 10px; text-align: center; background-color: #f5476d">Numar Proprietati</th>
-            <th style="padding: 10px; text-align: center; background-color: #f5476d">Telefon</th>
-            <th style="padding: 10px; text-align: center; background-color: #f5476d">Email</th>
-            <th style="padding: 10px; text-align: center; background-color: #f5476d"> </th>
-        </tr>
-        {% for agent in agents %}
-        <tr>
-            <td style="padding: 10px; text-align: center; background-color: #f6cafc">{{ agent[0] }}</td>
-            <td style="padding: 10px; text-align: center; background-color: #f6cafc">{{ agent[1] }}</td>
-            <td style="padding: 10px; text-align: center; background-color: #f6cafc">{{ agent[2] }}</td>
-            <td style="padding: 10px; text-align: center; background-color: #f6cafc">{{ agent[3] }}</td>
-            <td style="padding: 10px; text-align: center; background-color: #f6cafc">{{ agent[4] }}</td>
-            <td style="padding: 10px; text-align: center; background-color: #f6cafc">
-                <form action="{{ url_for('delete_agent', id=agent[0]) }}" method="POST">
-                    <button type="submit" style="background-color: #007bff; color: #fff; border: none; padding: 5px 10px; cursor: pointer;">Sterge</button>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    <h2 style="text-align: center;">Adauga Agent</h2>
-    <form action="{{ url_for('add_agent') }}" method="POST" style="width: 50%; margin: 20px auto; text-align: center;">
-        <label for="nume">Nume:</label><br>
-        <input type="text" id="nume" name="Nume_agent" required><br>
-        <label for="nrproprietati">Numar Proprietati:</label><br>
-        <input type="text" id="nrproprietati" name="Nr_proprietati" required><br>
-        <label for="telefon">Telefon:</label><br>
-        <input type="text" id="telefon" name="Nr_telefon" required><br>
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" name="Email" required><br><br>
-        <button type="submit" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer;">Adauga Agent</button>
-    </form>
-    
-    <h2 style="text-align: center;">Update Agent</h2>
-    <form action="{{ url_for('update_agent') }}" method="POST" style="width: 50%; margin: 20px auto; text-align: center;">
-        <label for="nume">ID AGENT:</label><br>
-        <input type="text" id="idagent" name="ID_agent" required><br>
-        <label for="nume">Nume:</label><br>
-        <input type="text" id="nume" name="Nume_agent" required><br>
-        <label for="nrproprietati">Numar Proprietati:</label><br>
-        <input type="text" id="nrproprietati" name="Nr_proprietati" required><br>
-        <label for="telefon">Telefon:</label><br>
-        <input type="text" id="telefon" name="Nr_telefon" required><br>
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" name="Email" required><br><br>
-        <button type="submit" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer;">UPDATE</button>
-    </form>
-
     <center>
-        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+        <div style= "display: flex; 
+            justify-content: center; 
+            gap: 1px;
+            margin-top: 20px;
+            background-color: #cacffc00;
+            margin-left: 0px;"
+        >
             <form action="/index2" method="get">
-                <button type="submit" style="background-color: #007bff; color: #fff; border: 0; padding: 20px 30px; cursor: pointer;">
+                <button type="submit">
                     Lista Proprietari
                 </button>
             </form>
             <form action="/spec" method="get">
-                <button type="submit" style="background-color: #007bff; color: #fff; border: 0; padding: 20px 30px; cursor: pointer;">
+                <button type="submit" >
                     Lista Specificatii
                 </button>
             </form>
             <form action="/proprietati" method="get">
-                <button type="submit" style="background-color: #007bff; color: #fff; border: 0; padding: 20px 30px; cursor: pointer;">
+                <button type="submit">
                     Proprietati
                 </button>
             </form>
             <form action="/detalii" method="get">
-                <button type="submit" style="background-color: #007bff; color: #fff; border: 0; padding: 20px 30px; cursor: pointer;">
+                <button type="submit" >
                     Detalii Proprietati
                 </button>
             </form>
         </div>
     </center>
+
+    <h1>Lista Agenti Imobiliari</h1>
+    
+    <table>
+        <tr>
+            <th >ID Agent</th>
+            <th>Nume</th>
+            <th >Numar Proprietati</th>
+            <th >Telefon</th>
+            <th >Email</th>
+            <th > </th>
+        </tr>
+        {% for agent in agents %}
+        <tr>
+            <td >{{ agent[0] }}</td>
+            <td >{{ agent[1] }}</td>
+            <td >{{ agent[2] }}</td>
+            <td >{{ agent[3] }}</td>
+            <td>{{ agent[4] }}</td>
+            <td >
+                <form action="{{ url_for('delete_agent', id=agent[0]) }}" method="POST">
+                    <button type="submit">Sterge</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+    
+    <div class="form-container">
+        
+        <div class="form-box">
+            <h2>Adaugă Agent</h2>
+            <form action="{{ url_for('add_agent') }}" method="POST">
+                <label for="nume">Nume:</label>
+                <input type="text" id="nume" name="Nume_agent" required>
+    
+                <label for="nrproprietati">Număr Proprietăți:</label>
+                <input type="text" id="nrproprietati" name="Nr_proprietati" required>
+    
+                <label for="telefon">Telefon:</label>
+                <input type="text" id="telefon" name="Nr_telefon" required>
+    
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="Email" required>
+                <br><br>
+                <button type="submit">Adaugă Agent</button>
+            </form>
+        </div>
+    
+        
+        <div class="form-box">
+            <h2>Update Agent</h2>
+            <form action="{{ url_for('update_agent') }}" method="POST">
+                <label for="idagent">ID Agent:</label>
+                <input type="text" id="idagent" name="ID_agent" required>
+    
+                <label for="nume">Nume:</label>
+                <input type="text" id="nume" name="Nume_agent" required>
+    
+                <label for="nrproprietati">Număr Proprietăți:</label>
+                <input type="text" id="nrproprietati" name="Nr_proprietati" required>
+    
+                <label for="telefon">Telefon:</label>
+                <input type="text" id="telefon" name="Nr_telefon" required>
+    
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="Email" required>
+                <br><br>    
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+    
+
+
 </body>
 </html>
