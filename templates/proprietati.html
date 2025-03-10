@@ -38,29 +38,34 @@
         </tr>
         {% endfor %}
     </table>
-    <h2 style="text-align: center;">Adauga Proprietate</h2>
-    <form action="{{ url_for('add_proprietate') }}" method="POST" >
-        <label for="nume">ID agent:</label><br><br>
-        <input type="text" id="idagent" name="ID_agent" required><br><br>
-        <label for="nrproprietati">Sector:</label><br><br>
-        <input type="text" id="sector" name="Sector" required><br><br>
-        <label for="telefon">Nr camere:</label><br><br>
-        <input type="text" id="camere" name="Nr_Camere" required><br><br>
-        <button type="submit">Adauga</button>
-    </form>
 
-<br>
+    <div class="form-container">
 
-    <form action="{{ url_for('numarcamere') }}" method="POST">
-        
-        <label for="id">Numar de camere:</label><br><br>
-        <input type="text" id="Nr_Camere" name="Nr_Camere" required><br><br>
-        
-        <button type="submit">
-            Start </button>
-        
-        </form>
+        <div class="form-box">
+            <h2 style="text-align: center;">Adauga Proprietate</h2>
+            <form action="{{ url_for('add_proprietate') }}" method="POST" >
+                <label for="nume">ID agent:</label><br><br>
+                <input type="text" id="idagent" name="ID_agent" required><br><br>
+                <label for="nrproprietati">Sector:</label><br><br>
+                <input type="text" id="sector" name="Sector" required><br><br>
+                <label for="telefon">Nr camere:</label><br><br>
+                <input type="text" id="camere" name="Nr_Camere" required><br><br>
+                <button type="submit">Adauga</button>
+            </form>
+        </div>
 
+        <div class="form-box">
+            <form action="{{ url_for('numarcamere') }}" method="POST">
+                
+                <h2 style="text-align: center;">Numar de camere</h2>
+                <input type="text" id="Nr_Camere" name="Nr_Camere" required><br><br>
+                
+                <button type="submit">
+                    Start </button>
+                
+                </form>
+        </div>
+    </div>
 
 
     <center>
