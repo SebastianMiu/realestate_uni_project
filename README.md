@@ -14,6 +14,12 @@
 
 
 ### How to use:
+
+in app.py, insert your mysql password in: app.config['MYSQL_PASSWORD'] = 'INSERT_PASSWORD_HERE'
+
+
 to install the requirements, run the following command in your terminal:
 
 pip install -r requirements. txt
+
+
